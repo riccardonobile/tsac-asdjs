@@ -53,7 +53,7 @@ function firsrtOddR(n) {
 
 // 3 - Dato un array di 10 elementi, calcolarne la media
 
-// Ireative
+// Iterative
 // Spazio: O(1)
 // Tempo: O(n)
 function avgAll(myarray) {
@@ -81,7 +81,7 @@ function avgAllR(myarray) {
 
 // 4 - Dato un intervallo [a, b] con a e b due interi positivi, restituire la somma di tutti i numeri compresi all’interno dell’intervallo, estremi inclusi. Nel caso che b fosse minore di a, calcolare la somma nell’intervallo [b,a]
 
-// Ireative
+// Iterative
 // Spazio: O(1)
 // Tempo: O(n)
 function sumIntervalW(x, y) {
@@ -123,7 +123,7 @@ function sumIntervalR(x, y) {
 
 // 5 - Si calcoli il prodotto di due numeri a, b maggiori o uguali a zero, tramite l’utilizzo del solo operatore somma
 
-// Ireative
+// Iterative
 // Spazio: O(1)
 // Tempo: O(n)
 function mult(x, y) {
@@ -141,12 +141,12 @@ function multR(x, y) {
 	if(y == 0) {
 		return 0;
 	}
-	return x + mult(x, y-1)
+	return x + multR(x, y-1)
 }
 
 // 6 - Si calcoli la divisione e il resto della divisione tra due numeri a, b maggiori a zero, tramite l’utilizzo dei soli operatori somma e sottrazione
 
-// Ireative
+// Iterative
 // Spazio: O(1)
 // Tempo: O(n)
 function div(a, b) {
@@ -159,12 +159,23 @@ function div(a, b) {
 }
 
 // Ricorsive
-// Spazio: O()
-// Tempo: O()
+// Spazio: O(n)
+// Tempo: O(n)
+function divR(a, b) {
+	function divRIN(a, b) {
+		if(a <= 0) {
+			return -1;
+		}     
+		return 1+divRIN(a-b,b);
+	}
+	var ris = divRIN(a, b);
+	var rest = a - (mult(ris, b)); 
+	return ris + " resto " + rest;
+}
 
 // 7 - Si calcoli la potenza (x^y) di due numeri x y maggiori o uguali a zero, tramite l’utilizzo dei soli operatori somma, sottrazione e della funzione mult
 
-// Ireative
+// Iterative
 // Spazio: O(1)
 // Tempo: O(n)
 function pow(x, y) {
@@ -182,62 +193,100 @@ function powR(x, y) {
 	if(y == 0) {
 		return 1;
 	}
-	return mult(x, pow(x, y-1));
+	return mult(x, powR(x, y-1));
 }
 
 // 8 - Dato un array contenente n^2 elementi, scrivere un algoritmo che permetta di inserire tutti gli oggetti in un array bidimensionale n x n.
 
-// Ireative
-// Spazio: O()
-// Tempo: O()
+// Iterative
+// Spazio: O(n^2)
+// Tempo: O(n^2)
+function arrToMatrix(myarray) {
+	var n = Math.sqrt(myarray.length);
+	if(n % 1 !== 0) {
+		return 0
+	}
+	var matrix = [];
+	var c = 0;
+	for(var i = 0; i < n; i++) {
+		for(var l = 0; l < n ; l++) {
+			if(!matrix[i]) {
+				matrix[i] = [];
+			}
+			matrix[i][l] = myarray[c];
+			c++;
+		}
+	}
+	return matrix;
+} 
 
 // Ricorsive
 // Spazio: O()
 // Tempo: O()
+function arrToMatrixR(myarray) {
+	var n = Math.sqrt(myarray.length);
+	if(n % 1 !== 0) {
+		return 0
+	}
+	result = [];
+	function arrToMatrixRIN(myarray, result, n) {
+		if(myarray.length == 0) {
+			return;
+		} 
+		result = result.push(myarray.slice(n));
+		myarray = myarray.splice(0,n);
+		return arrToMatrixRIN(myarray, result, n);
+	}
+	arrToMatrixRIN(myarray, result, n)
+}
 
 
 // Per Tiziano
 function ex_1_I(myarray) {
-    sumwhileneg(myarray);
+    return sumwhileneg(myarray);
 }
 function ex_1_R(myarray) {
-    sumwhilenegR(myarray);
+    return sumwhilenegR(myarray);
 }
 function ex_2_I(n) {
-    firsrtOdd(n);
+    return firsrtOdd(n);
 }
 function ex_2_R(n) {
-    firsrtOddR(n);
+    return firsrtOddR(n);
 }
 function ex_3_I(myarray) {
-	avgAll(myarray);
+	return avgAll(myarray);
 }
 function ex_3_R(myarray) {
-	avgAllR(myarray);
+	return avgAllR(myarray);
 }
 function ex_4_I(x, y) {
-	sumInterval(x, y);
+	return sumInterval(x, y);
 }
 function ex_4_R(x, y) {
-	sumIntervalR(x, y);
+	return sumIntervalR(x, y);
 }
 function ex_5_I(x, y) {
-	mult(x, y);
+	return mult(x, y);
 }
 function ex_5_R(x, y) {
-	multR(x, y);
+	return multR(x, y);
 }
 function ex_6_I(x, y) {
-	div(x, y);
+	return div(x, y);
 }
 function ex_6_R(x, y) {
-	divR(x, y);
+	return divR(x, y);
 }
 function ex_7_I(x, y) {
-	pow(x, y);
+	return pow(x, y);
 }
 function ex_7_R(x, y) {
-	powR(x, y);
+	return powR(x, y);
 }
-function ex_8_I(myarray) {}
-function ex_8_R(myarray) {}
+function ex_8_I(myarray) {
+	return arrToMatrix(myarray);
+}
+function ex_8_R(myarray) {
+	return arrToMatrixR(myarray);
+}
