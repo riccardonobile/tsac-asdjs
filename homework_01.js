@@ -164,13 +164,13 @@ function div(a, b) {
 function divR(a, b) {
 	function divRIN(a, b) {
 		if(a <= 0) {
-			return -1;
+			return 0;
 		}     
 		return 1+divRIN(a-b,b);
 	}
 	var ris = divRIN(a, b);
 	var rest = a - (mult(ris, b)); 
-	return ris + " resto " + rest;
+	return ris + ' resto ' + rest;
 }
 
 // 7 - Si calcoli la potenza (x^y) di due numeri x y maggiori o uguali a zero, tramite l’utilizzo dei soli operatori somma, sottrazione e della funzione mult
