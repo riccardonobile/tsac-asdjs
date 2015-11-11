@@ -181,7 +181,7 @@ function divR(a, b) {
 function pow(x, y) {
 	var ris = 1;
 	for (var i = 0; i < y; i++) {
-		ris = mult(x, x);
+		ris = mult(ris, x);
 	}
 	return ris;
 }
