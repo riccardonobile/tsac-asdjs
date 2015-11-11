@@ -5,15 +5,15 @@
 // Tempo: O(n)
 function sumwhileneg(myarray) {
 	var tot = 0;
-	for (var i = 0; i < myarray.lenght; i++) {
-        var x = myarray[i];
-        if (x > 0) {
-            tot += x;
-        } else {
-            return tot;
-        }
-        return tot;
-    }
+	for(i = 0; i < myarray.length; ++i) {
+		var x = myarray[i];
+		if (x > 0) {
+			tot += x;
+		} else {
+			return tot;
+		}
+	}
+	return tot;
 }
 
 // Ricorsive
@@ -232,7 +232,7 @@ function arrToMatrixR(myarray) {
 	function arrToMatrixRIN(myarray, result, n) {
 		if(myarray.length == 0) {
 			return;
-		} 
+		}
 		result = result.push(myarray.slice(n));
 		myarray = myarray.splice(0,n);
 		return arrToMatrixRIN(myarray, result, n);
