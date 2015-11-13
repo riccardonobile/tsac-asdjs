@@ -273,16 +273,16 @@ function repeatListR(el, n, array) {
 // Spazio: O(1)
 // Tempo: O(n)
 function orderOdd(array) {
-	var dispari = [];
-	var pari = [];
+	var odd = [];
+	var even = [];
 	for(var i = 0; i < array.length; i++) {
 		if(array[i] % 2) {
-			dispari.push(array[i]);
+			odd.push(array[i]);
 		} else {
-			pari.push(array[i]);
+			even.push(array[i]);
 		}
 	}
-	return dispari.concat(pari);
+	return odd.concat(even);
 }
 
 // Ricorsive
