@@ -3,7 +3,16 @@
 // Spazio: O(1)
 // Tempo: O(n)
 function sumwhileneg(myarray) {
-
+    var tot = 0;
+    myarray.every(function(x) {
+        if (x < 0) {
+            return false;
+        } else {
+            tot += x;
+            return true;
+        }
+    });
+    return tot;
 }
 
 // 2 - Dato un numero n, restituire la somma dei primi n numeri interi positivi dispari
@@ -19,7 +28,10 @@ function firsrtOdd(n) {
 // Spazio: O(1)
 // Tempo: O(n)
 function avgAll(myarray) {
-
+    var tot = myarray.reduce(function (acc, x) {
+        return acc + x;
+    }, 0);
+    return tot / myarray.length;
 }
 
 // 4 - Dato un intervallo [a, b] con a e b due interi positivi, restituire la somma di tutti i numeri compresi all’interno dell’intervallo, estremi inclusi. Nel caso che b fosse minore di a, calcolare la somma nell’intervallo [b,a]
@@ -58,6 +70,11 @@ function pow(x, y) {
 // Spazio: O(n^2)
 // Tempo: O(n^2)
 function arrToMatrix(myarray) {
+    var n = Math.sqrt(myarray.length);
+    if(n % 1 !== 0) {
+        return 0;
+    }
+    var matrix = [];
 
 }
 
@@ -66,7 +83,9 @@ function arrToMatrix(myarray) {
 // Spazio: O(1)
 // Tempo: O(n)
 function invertiList(list) {
-
+    return list.map(function(x, index, array) {
+        return array[array.length - 1 - index];
+    });
 }
 
 // 10 - Dati due interi a, n maggiori di 0, scrivere un algoritmo che crea un lista di n elementi contenenti a
@@ -74,15 +93,25 @@ function invertiList(list) {
 // Spazio: O(1)
 // Tempo: O(n)
 function repeatList(el, n) {
-
+    var output = [];
+    for(var i = 0; i < n; i++) {
+        output.push(el);
+    }
+    return output;
 }
 
 // 11 - Data una lista di interi A, si riordini gli elementi della lista in modo tale che tutti gli elementi dispari precedano nello stesso ordine tutti gli elementi pari
 
 // Spazio: O(1)
 // Tempo: O(n)
-function orderOdd(array) {
-
+function orderOdd(myarray) {
+    var arrayOdd = myarray.filter(function(x) {
+        return x % 2;
+    });
+    var arrayEven = myarray.filter(function(x) {
+        return !(x % 2);
+    });
+    return arrayOdd.concat(arrayEven);
 }
 
 // Per Tiziano

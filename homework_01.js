@@ -204,7 +204,7 @@ function powR(x, y) {
 function arrToMatrix(myarray) {
 	var n = Math.sqrt(myarray.length);
 	if(n % 1 !== 0) {
-		return 0
+		return 0;
 	}
 	var matrix = [];
 	var c = 0;
