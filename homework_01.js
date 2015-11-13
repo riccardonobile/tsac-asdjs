@@ -166,7 +166,7 @@ function divR(a, b) {
 		if(a <= 0) {
 			return 0;
 		}     
-		return 1+divRIN(a-b,b);
+		return 1 + divRIN(a-b,b);
 	}
 	var ris = divRIN(a, b);
 	var rest = a - (mult(ris, b)); 
@@ -196,7 +196,7 @@ function powR(x, y) {
 	return mult(x, powR(x, y-1));
 }
 
-// 8 - Dato un array contenente n^2 elementi, scrivere un algoritmo che permetta di inserire tutti gli oggetti in un array bidimensionale n x n.
+// 8 - Dato un array contenente n^2 elementi, scrivere un algoritmo che permetta di inserire tutti gli oggetti in un array bidimensionale n x n
 
 // Iterative
 // Spazio: O(n^2)
@@ -224,22 +224,73 @@ function arrToMatrix(myarray) {
 // Spazio: O()
 // Tempo: O()
 function arrToMatrixR(myarray) {
-	var n = Math.sqrt(myarray.length);
-	if(n % 1 !== 0) {
-		return 0
-	}
-	result = [];
-	function arrToMatrixRIN(myarray, result, n) {
-		if(myarray.length == 0) {
-			return;
-		}
-		result = result.push(myarray.slice(n));
-		myarray = myarray.splice(0,n);
-		return arrToMatrixRIN(myarray, result, n);
-	}
-	arrToMatrixRIN(myarray, result, n)
+
 }
 
+// 9 - Dato una lista di elementi, scrivere un algoritmo che permetta di invertire l’ordine degli elementi
+
+// Iterative
+// Spazio: O(1)
+// Tempo: O(n)
+function invertiList(list) {
+	var output = [];
+	for(var i = list.length; i >= 0; i--) {
+		output.push(list[i])
+	}
+	return output;
+}
+
+// Ricorsive
+// Spazio: O(n)
+// Tempo: O(n)
+function invertiListR(list, result) {
+
+}
+
+// 10 - Dati due interi a, n maggiori di 0, scrivere un algoritmo che crea un lista di n elementi contenenti a
+
+// Iterative
+// Spazio: O(1)
+// Tempo: O(n)
+function repeatList(el, n) {
+	var output = [];
+	for(var i = 0; i < n; i++) {
+		output.push(el);
+	}
+	return output;
+}
+
+// Ricorsive
+// Spazio: O()
+// Tempo: O()
+function repeatListR(el, n, array) {
+
+}
+
+// 11 - Data una lista di interi A, si riordini gli elementi della lista in modo tale che tutti gli elementi dispari precedano nello stesso ordine tutti gli elementi pari
+
+// Iterative
+// Spazio: O(1)
+// Tempo: O(n)
+function orderOdd(array) {
+	var dispari = [];
+	var pari = [];
+	for(var i = 0; i < array.length; i++) {
+		if(array[i] % 2) {
+			dispari.push(array[i]);
+		} else {
+			pari.push(array[i]);
+		}
+	}
+	return dispari.concat(pari);
+}
+
+// Ricorsive
+// Spazio: O()
+// Tempo: O()
+function orderOddR(array) {
+
+}
 
 // Per Tiziano
 function ex_1_I(myarray) {
@@ -289,4 +340,22 @@ function ex_8_I(myarray) {
 }
 function ex_8_R(myarray) {
 	return arrToMatrixR(myarray);
+}
+function ex_9_I(myarray) {
+	return invertiList(myarray);
+}
+function ex_9_R(myarray) {
+	return invertiListR(myarray,[]);
+}
+function ex_10_I(x, y) {
+	return repeatList(x, y);
+}
+function ex_10_R(x, y) {
+	return repeatListR(x, y, []);
+}
+function ex_11_I(myarray) {
+	return orderOdd(myarray);
+}
+function ex_11_R(myarray) {
+	return orderOddR(myarray);
 }
