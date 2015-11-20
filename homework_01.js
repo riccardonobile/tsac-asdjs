@@ -235,7 +235,21 @@ function arrToMatrix(myarray) {
 // Spazio: O()
 // Tempo: O()
 function arrToMatrixR(myarray) {
+	function arrToMatrixInternal(myarray, matrix) {
+		matrix.unshift(myarray);
+		return matrix;
+	}
 
+	function arrToMatrixRInt(myarray, n) {
+		if (myarray.length == n) {
+			return [myarray];
+		} else {
+			return arrToMatrixInternal(myarray.slice(0, n),
+					arrToMatrixRInt(myarray.slice(n), n));
+		}
+	}
+
+	return arrToMatrixRInt(myarray, Math.sqrt(myarray.length));
 }
 
 // 9 - Dato una lista di elementi, scrivere un algoritmo che permetta di invertire l’ordine degli elementi
