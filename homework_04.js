@@ -18,7 +18,7 @@ Stack.prototype.isEmpty = function() {
     return this.myarray.length == 0;
 }
 
-void function rpn(str) {
+function rpn(str) {
     var stack = new Stack();
     var strArr = str.split(" ");
 
