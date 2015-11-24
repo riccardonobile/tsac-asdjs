@@ -47,5 +47,5 @@ function rpn(str) {
             }
         }
     });
-    return stack.myarray[0];
+    return stack.pop();
 }
