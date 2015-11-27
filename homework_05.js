@@ -106,7 +106,7 @@ CircularQueue.prototype.dequeue = function() {
 
 CircularQueue.prototype.front = function() {
     if(this.head == this.tail) {
-        return -1;
+        return false;
     } else {
         var el = this.queue[this.tail];
         return el;
