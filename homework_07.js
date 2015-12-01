@@ -1,4 +1,4 @@
-function ex_1a(myarray) {
+function esercizio1(myarray) {
     if(myarray.length == 0) {
         return 10;
     } else {
@@ -6,7 +6,7 @@ function ex_1a(myarray) {
     }
 }
 
-function ex_1b(myarray) {
+function sommaQuadrati(myarray) {
     if(myarray.length == 0) {
         return 0;
     } else {
@@ -19,7 +19,7 @@ function ex_1b(myarray) {
     }
 }
 
-function ex_2(myarray) {
+function sommaQuadratiF(myarray) {
     return myarray.reduce(function(tot, x) {
         if(x % 2 == 0) {
             return x * x + tot;
@@ -45,7 +45,7 @@ Stack.prototype.isEmpty = function () {
     return this.array.length == 0;
 }
 
-function ex_3(myarray) {
+function sommaTot(myarray) {
     var odd = new Stack();
     var even = new Stack();
     myarray.forEach(function(x) {
@@ -64,4 +64,17 @@ function ex_3(myarray) {
         tot += mult.pop();
     }
     return tot;
+}
+
+function ex_1a(myarray) {
+    return esercizio1(myarray);
+}
+function ex_1b(myarray) {
+    return sommaQuadrati(myarray);
+}
+function ex_2(myarray) {
+    return sommaQuadratiF(myarray);
+}
+function ex_3(myarray) {
+    sommaTot(myarray);
 }
