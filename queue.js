@@ -29,3 +29,79 @@ queue.enqueue(q4);
 queue.enqueue(q5);
 queue.enqueue(q6);
 
+function PriorityQueue() {
+    this.queue = [];
+}
+
+function QueueItem(i, p) {
+    this.item = i;
+    this.priority = p;
+}
+
+PriorityQueue.prototype.enqueue = function(e) {
+   var index = 0;
+   var found = false;
+   while (index < this.queue.length && !found) {
+       var item = this.queue[index];
+       if(e.priority < item.priority) {
+           found = true;
+       } else {
+           index ++;
+       }
+   }
+   this.queue.splice(index, 0, e);
+}
+
+PriorityQueue.prototype.dequeue = function() {
+    return this.queue.pop();
+}
+
+PriorityQueue.prototype.front = function() {
+    return this.queue[this.queue.length - 1];
+}
+
+PriorityQueue.prototype.size = function() {
+    return this.queue.length;
+}
+
+PriorityQueue.prototype.isEmpty = function() {
+    return this.queue.length == 0;
+}
+
+
+
+
+function PriorityQueueCallback(callback) {
+    this.queue = [];
+    this.ord = callback;
+}
+
+PriorityQueueCallback.prototype.enqueue = function(e) {
+    var index = 0;
+    var found = false;
+    while (index < this.queue.length && !found) {
+        var item = this.queue[index];
+        if(callback(e.priority < item.priority) == -1 {
+            found = true;
+        } else {
+            index ++;
+        }
+    }
+    this.queue.splice(index, 0, e);
+}
+
+PriorityQueueCallback.prototype.dequeue = function() {
+    return this.queue.pop();
+}
+
+PriorityQueueCallback.prototype.front = function() {
+    return this.queue[this.queue.length - 1];
+}
+
+PriorityQueueCallback.prototype.size = function() {
+    return this.queue.length;
+}
+
+PriorityQueueCallback.prototype.isEmpty = function() {
+    return this.queue.length == 0;
+}

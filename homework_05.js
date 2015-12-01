@@ -19,7 +19,6 @@ PriorityQueue.prototype.enqueue = function(e) {
             return true;
         }
     });
-    //this.queue.unshift(e);
     this.queue.splice(index, 0, e);
 }
 
@@ -51,8 +50,8 @@ function PriorityQueueCallback(callback) {
 PriorityQueueCallback.prototype.enqueue = function(e) {
     var index = 0;
     this.queue.some(function(el, indx) {
-        if(this.ord(e.priority, el.priority)){
-            index =  indx;
+        if(this.ord(e.priority, el.priority) == -1){
+            index = indx;
             return true;
         }
     });
