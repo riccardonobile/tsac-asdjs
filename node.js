@@ -56,7 +56,7 @@ function inPostOrder(tree, callback) {
     }
 }
 function searchTree(node, e) {
-    if (node == full) {
+    if (node == null) {
         return false;
     }
     if (e == node.item) {
