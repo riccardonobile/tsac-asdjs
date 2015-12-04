@@ -1,5 +1,4 @@
 /*  Esame 2015 - Riccardo Nobile - 04/12/2015 */
-
 function initialArray() {
     var seed = 1;
     function random() {
@@ -14,6 +13,20 @@ function initialArray() {
     return a;
 }
 
+
+
+/*
+ * START Esercizio Stack
+ */
+
+
+var _0xd10d=["\x28\x20\x28\x20\x28\x20\x28\x20\x28\x20\x33\x33\x32\x31\x33\x20\x2A\x20\x32\x33\x33\x20\x29\x20\x2B\x20\x39\x39\x32\x31\x20\x29\x20\x2D\x20\x28\x20\x37\x33\x32\x31\x34\x31\x38\x20\x2B\x20\x33\x33\x32\x31\x32\x32\x20\x29\x20\x29\x20\x2D\x20\x31\x34\x31\x33\x32\x34\x32\x20\x29\x20\x2A\x20\x28\x20\x32\x34\x31\x34\x31\x30\x20\x2D\x20\x32\x34\x31\x34\x31\x39\x20\x29\x20\x29"];
+
+function evaluateExpr(callback) {
+    return callback(_0xd10d[0]);
+}
+
+/* END Esercizio Stack */
 
 /*  Verifica che l'array generato da initialArray() */
 function verArray(array) {
@@ -62,7 +75,26 @@ function filteredSqrt(array) {
  *  in cui ogni singola operazione è all’interno di parentesi.
  */
 
+function Stack() {
+    this.myarray = [];
+}
+Stack.prototype.push = function(x) {
+    this.myarray.push(x);
+}
+Stack.prototype.pop = function() {
+    return this.myarray.pop();
+}
+Stack.prototype.peek = function() {
+    return this.myarray[this.myarray.length - 1];
+}
+Stack.prototype.isEmpty = function() {
+    return this.myarray.length == 0;
+}
+
 function stack() {
+    var vStack = new Stack();
+    var sStack = new Stack();
+
 
 }
 
