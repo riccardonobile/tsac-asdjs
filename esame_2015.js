@@ -1,4 +1,5 @@
 /*  Esame 2015 - Riccardo Nobile - 04/12/2015 */
+
 function initialArray() {
     var seed = 1;
     function random() {
