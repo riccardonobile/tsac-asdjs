@@ -91,11 +91,36 @@ Stack.prototype.isEmpty = function() {
     return this.myarray.length == 0;
 }
 
-function stack() {
+function evaluateExpression(str) {
     var vStack = new Stack();
     var sStack = new Stack();
-
-
+    str.split(' ').forEach(function(elm) {
+        if(elm == '+' || elm == '-' || elm == '*' || elm == '/' || elm == '(') {
+            sStack.push(elm);
+        } else if (elm == ')') {
+            var elm1 = vStack.pop();
+            var elm2 = vStack.pop();
+            var opr = sStack.pop();
+            sStack.pop();
+            switch(opr) {
+                case "+":
+                    vStack.push(elm2 + elm1);
+                    break;
+                case "-":
+                    vStack.push(elm2 - elm1);
+                    break;
+                case "*":
+                    vStack.push(elm2 * elm1);
+                    break;
+                case "/":
+                    vStack.push(elm2 / elm1);
+                    break;
+            }
+        } else {
+            vStack.push(parseFloat(elm));
+        }
+    });
+    return vStack.pop();
 }
 
 /*  Esercizio 5 - Tree
